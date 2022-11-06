@@ -1,0 +1,29 @@
+{
+	"token": "TOKEN",
+	"allowedUsers": [ ],
+	"channel": "CHANNEL",
+	"texts": {
+		"welcome": "Tik /help voor de commando's",
+		"post": "Er is door %creator% een nieuw artikel op de website geplaatst!\n[%title%](%link%)",
+		"aanmelden": "Op de volgende dagen zijn nog plekken beschikbaar:\n%days%\nVergeet je niet [aan te melden!](https://aanmelden.djoamersfoort.nl)",
+		"day": "%description%: %available%",
+		"search": {
+			"notFound": "Helaas, niets gevonden",
+			"result": "*Gevonden*: %name%\n*Locatie*: %location%",
+			"noArgs": "Waar wil je naar zoeken?"
+		},
+		"error": "Er ging iets mis",
+		"notAllowed": "Stout!",
+		"help": "Ik snap de volgende commando's:\n/help: Deze helptekst\n/about: Info over deze bot\n/search <keyword>: Zoeken in de DJO inventaris\n/aanmeld_status: Rapporteer de aanmeld status in DJO Chat",
+		"about": "Dit is de officiele DJO Amersfoort Telegram Bot. Hier staat mijn source:  [Github](https://github.com/djoamersfoort/djo-telegram-bot)."
+	},
+	"aanmelden": {
+		"day": 5,
+		"hour": 19,
+		"minutes": 30
+	},
+	"triggers": {
+		"joch": { "text": "Je bent zelf een joch!" },
+		"kom vechten": { "document": "https://i.kym-cdn.com/photos/images/original/001/356/324/914.gif" }
+	}
+}
