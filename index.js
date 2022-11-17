@@ -16,6 +16,10 @@ bot.start(ctx => ctx.reply(config.texts.welcome))
 bot.command('channel', ctx => ctx.reply('' + ctx.update.message.chat.id))
 bot.command('help', ctx => ctx.reply(templates.render('help')))
 bot.command('about', ctx => ctx.reply(templates.render('about'), { parse_mode: 'Markdown' }))
+bot.command('time', ctx => {
+  const current = new Date()
+  ctx.reply(`Day: ${current.getDay()}, hour: ${current.getHours()}, minutes: ${current.getMinutes()}`)
+})
 bot.on('text', ctx => {
   Object.entries(config.triggers).forEach(([trigger, response]) => {
     if (!ctx.update.message.text.toLowerCase().includes(trigger)) return
