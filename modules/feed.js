@@ -20,8 +20,9 @@ class Feed {
   async parse () {
     let res
     try {
-      res = await this.parser.parseURL('https://djoamersfoort.nl/feed')
+      res = await this.parser.parseURL('https://www.djoamersfoort.nl/feed/')
     } catch (e) {
+      console.log(e)
       return
     }
     const { items } = res
