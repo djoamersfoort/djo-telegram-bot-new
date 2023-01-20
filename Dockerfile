@@ -1,11 +1,11 @@
 FROM node:16
 
 RUN ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
-RUN useradd -U -u 1003 -m place
-RUN mkdir /app && chown place:place /app
+RUN useradd -U -u 1003 -m bot
+RUN mkdir /app && chown bot:bot /app
 
 WORKDIR /app
-USER place
+USER bot
 
 COPY package*.json ./
 
