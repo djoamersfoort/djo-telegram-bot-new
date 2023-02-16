@@ -19,7 +19,7 @@ class Feed {
   async parse () {
     let res
     try {
-      parser = new Parser()
+      let parser = new Parser()
       res = await parser.parseURL('https://www.djoamersfoort.nl/feed/')
     } catch (e) {
       console.log(e)
