@@ -6,7 +6,6 @@ const templates = require('./templateManager')
 class Feed {
   constructor (bot) {
     this.bot = bot
-    this.parser = new Parser()
     this.parsed = fs.existsSync('./data/guids.json') ? JSON.parse(fs.readFileSync('./data/guids.json').toString()) : []
 
     this.parse().then()
@@ -20,7 +19,8 @@ class Feed {
   async parse () {
     let res
     try {
-      res = await this.parser.parseURL('https://www.djoamersfoort.nl/feed/')
+      parser = new Parser()
+      res = await parser.parseURL('https://www.djoamersfoort.nl/feed/')
     } catch (e) {
       console.log(e)
       return
