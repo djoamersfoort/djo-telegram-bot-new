@@ -16,10 +16,10 @@ class Feed {
   }
 
   async parse () {
-    let parsed = fs.existsSync('./data/guids.json') ? JSON.parse(fs.readFileSync('./data/guids.json').toString()) : []
+    const parsed = fs.existsSync('./data/guids.json') ? JSON.parse(fs.readFileSync('./data/guids.json').toString()) : []
     let res
     try {
-      let parser = new Parser()
+      const parser = new Parser()
       res = await parser.parseURL('https://www.djoamersfoort.nl/feed/')
     } catch (e) {
       console.log(e)
