@@ -1,9 +1,9 @@
-const { Telegraf } = require('telegraf')
-const config = require('./data/config.json')
-const Feed = require('./modules/feed')
-const Aanmelden = require('./modules/aanmelden')
-const Search = require('./modules/search')
-const templates = require('./modules/templateManager')
+import { Telegraf } from 'telegraf'
+import { Feed } from './modules/feed.js'
+import { Aanmelden } from './modules/aanmelden.js'
+import { Search } from './modules/search.js'
+import templates from './modules/templateManager.js'
+import { config } from './modules/config.js'
 
 const bot = new Telegraf(config.token)
 /* eslint-disable no-new */

@@ -1,4 +1,4 @@
-const config = require('../data/config.json')
+import { config } from './config.js'
 
 class TemplateManager {
   constructor () {
@@ -29,4 +29,4 @@ class TemplateManager {
   }
 }
 
-module.exports = new TemplateManager()
+export default new TemplateManager()

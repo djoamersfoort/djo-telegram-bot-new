@@ -1,7 +1,7 @@
-const Parser = require('rss-parser')
-const fs = require('fs')
-const config = require('../data/config.json')
-const templates = require('./templateManager')
+import Parser from 'rss-parser'
+import fs from 'fs'
+import { config } from './config.js'
+import templates from './templateManager.js'
 
 class Feed {
   constructor (bot) {
@@ -36,4 +36,4 @@ class Feed {
   }
 }
 
-module.exports = Feed
+export { Feed }

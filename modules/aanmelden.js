@@ -1,6 +1,6 @@
-const config = require('../data/config.json')
-const fetch = require('node-fetch')
-const templates = require('./templateManager')
+import fetch from 'node-fetch'
+import templates from './templateManager.js'
+import { config } from './config.js'
 
 class Aanmelden {
   constructor (bot) {
@@ -39,4 +39,4 @@ class Aanmelden {
   }
 }
 
-module.exports = Aanmelden
+export { Aanmelden }

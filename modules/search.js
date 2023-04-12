@@ -1,5 +1,5 @@
-const fetch = require('node-fetch')
-const templates = require('./templateManager')
+import fetch from 'node-fetch'
+import templates from './templateManager.js'
 
 class Search {
   constructor (bot) {
@@ -44,4 +44,4 @@ class Search {
   }
 }
 
-module.exports = Search
+export { Search }
