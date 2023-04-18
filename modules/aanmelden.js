@@ -3,7 +3,7 @@ import templates from './templateManager.js'
 import { config } from './config.js'
 
 class Aanmelden {
-  constructor (bot) {
+  constructor (bot, scheduler) {
     this.bot = bot
 
     this.bot.command('aanmeld_status', ctx => {
@@ -11,21 +11,10 @@ class Aanmelden {
 
       this.announce(true).then()
     })
-    setInterval(() => this.announce(), 60 * 1000)
-  }
-
-  isNow () {
-    const current = new Date()
-
-    if (current.getDay() !== config.aanmelden.day) return false
-    if (current.getHours() !== config.aanmelden.hour) return false
-    if (current.getMinutes() !== config.aanmelden.minutes) return false
-
-    return true
+    scheduler.schedule(`${config.aanmelden.minutes} ${config.aanmelden.hour} * * ${config.aanmelden.day}`, this.announce.bind(this))
   }
 
   async announce (ignoreTime = false) {
-    if (!ignoreTime && !this.isNow()) return
     let res
     try {
       res = await fetch('https://aanmelden.djoamersfoort.nl/api/v2/free')

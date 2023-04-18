@@ -2,13 +2,15 @@ import { Telegraf } from 'telegraf'
 import { Feed } from './modules/feed.js'
 import { Aanmelden } from './modules/aanmelden.js'
 import { Search } from './modules/search.js'
+import { Scheduler } from './modules/scheduler.js'
 import templates from './modules/templateManager.js'
 import { config } from './modules/config.js'
 
 const bot = new Telegraf(config.token)
 /* eslint-disable no-new */
+const scheduler = new Scheduler(bot)
 new Feed(bot)
-new Aanmelden(bot)
+new Aanmelden(bot, scheduler)
 new Search(bot)
 /* eslint-enable no-new */
 

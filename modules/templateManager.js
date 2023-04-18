@@ -21,8 +21,10 @@ class TemplateManager {
   }
 
   render (id, params = {}) {
-    const text = this.texts[id]
+    return this.renderText(this.texts[id], params)
+  }
 
+  renderText (text, params = {}) {
     return text.replaceAll(/%(.*?)%/gm, (_string, placeholder) => {
       return params[placeholder]
     })
