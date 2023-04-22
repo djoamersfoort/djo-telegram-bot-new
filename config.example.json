@@ -29,7 +29,8 @@
 	"scheduled": [
 		{
 			"time": "* * * * *",
-			"text": "Cron Job to run every minute"
+			"text": "Cron Job to run every minute",
+			"channel": "@bollemoeders"
 		}
 	]
 }

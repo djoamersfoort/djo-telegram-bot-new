@@ -10,7 +10,7 @@ class Scheduler {
 
   standardJobs () {
     config.scheduled?.forEach(e => {
-      this.schedule(e.time, e.text)
+      this.schedule(e.time, e)
     })
   }
 
@@ -19,7 +19,7 @@ class Scheduler {
       if (job instanceof Function) {
         job()
       } else {
-        await this.bot.telegram.sendMessage(config.channel, templates.renderText(job), { parse_mode: 'Markdown' })
+        await this.bot.telegram.sendMessage(job.channel, templates.renderText(job.text), { parse_mode: 'Markdown' })
       }
     })
   }
