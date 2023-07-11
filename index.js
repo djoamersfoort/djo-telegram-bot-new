@@ -3,6 +3,7 @@ import { Feed } from './modules/feed.js'
 import { Aanmelden } from './modules/aanmelden.js'
 import { Search } from './modules/search.js'
 import { Scheduler } from './modules/scheduler.js'
+import { ICal } from './modules/ical.js'
 import templates from './modules/templateManager.js'
 import { config } from './modules/config.js'
 
@@ -12,6 +13,7 @@ const scheduler = new Scheduler(bot)
 new Feed(bot)
 new Aanmelden(bot, scheduler)
 new Search(bot)
+if (config.calendar) new ICal(bot, scheduler)
 /* eslint-enable no-new */
 
 bot.start(ctx => ctx.reply(config.texts.welcome))

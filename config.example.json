@@ -26,11 +26,5 @@
 		"joch": { "text": "Je bent zelf een joch!" },
 		"kom vechten": { "document": "https://i.kym-cdn.com/photos/images/original/001/356/324/914.gif" }
 	},
-	"scheduled": [
-		{
-			"time": "* * * * *",
-			"text": "Cron Job to run every minute",
-			"channel": "@bollemoeders"
-		}
-	]
+	"calendar": "ICS URL or undefined"
 }
