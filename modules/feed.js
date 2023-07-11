@@ -8,7 +8,7 @@ class Feed {
     this.bot = bot
 
     this.parse().then()
-    setInterval(this.parse, 5 * 60 * 1000)
+    setInterval(this.parse.bind(this), 5 * 60 * 1000)
   }
 
   async message (item) {
