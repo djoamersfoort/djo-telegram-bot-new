@@ -1,4 +1,5 @@
 import { Telegraf } from 'telegraf'
+import { message } from 'telegraf/filters'
 import { Feed } from './modules/feed.js'
 import { Aanmelden } from './modules/aanmelden.js'
 import { Search } from './modules/search.js'
@@ -24,7 +25,7 @@ bot.command('time', ctx => {
   const current = new Date()
   ctx.reply(`Day: ${current.getDay()}, hour: ${current.getHours()}, minutes: ${current.getMinutes()}`)
 })
-bot.on('text', ctx => {
+bot.on(message('text'), ctx => {
   Object.entries(config.triggers).forEach(([trigger, response]) => {
     if (!ctx.update.message.text.toLowerCase().includes(trigger)) return
 
