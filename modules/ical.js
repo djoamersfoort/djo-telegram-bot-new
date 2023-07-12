@@ -1,6 +1,6 @@
 import { config } from './config.js'
 import ical from 'node-ical'
-import htmlToMarkdown from '@wcj/html-to-markdown'
+import { NodeHtmlMarkdown } from 'node-html-markdown'
 
 class ICal {
   constructor (bot, scheduler) {
@@ -17,7 +17,7 @@ class ICal {
 
     const job = this.scheduler.schedule(event.rrule ? event.rrule.after(new Date()) : event.start, {
       channel: parseInt(event.location) || event.location || config.channel,
-      text: await htmlToMarkdown({ html: event.description })
+      text: NodeHtmlMarkdown.translate(event.description)
     })
     this.jobs.set(event.uid, {
       job,
