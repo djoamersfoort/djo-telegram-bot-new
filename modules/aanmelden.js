@@ -7,7 +7,9 @@ class Aanmelden {
     this.bot = bot
 
     this.bot.command('aanmeld_status', ctx => {
-      if (!config.allowedUsers.includes(ctx.update.message.chat.id)) { return ctx.reply(templates.render('notAllowed')) }
+      if (!config.allowedUsers.includes(ctx.update.message.chat.id)) {
+        return ctx.reply(templates.render('notAllowed'))
+      }
 
       this.announce(true).then()
     })

@@ -5,7 +5,7 @@ class Search {
   constructor (bot) {
     this.inventoryApi = 'https://inventory.djoamersfoort.nl/api/v1'
     this.bot = bot
-    this.bot.command('search', ctx => this.command(ctx))
+    this.bot.command('search', this.command.bind(this))
   }
 
   parseArgs (ctx) {

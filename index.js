@@ -17,8 +17,8 @@ new Search(bot)
 if (config.calendar) new ICal(bot, scheduler)
 /* eslint-enable no-new */
 
-bot.start(ctx => ctx.reply(config.texts.welcome))
-bot.command('channel', ctx => ctx.reply('' + ctx.update.message.chat.id))
+bot.start(ctx => ctx.reply(templates.render('welcome')))
+bot.command('channel', ctx => ctx.reply(ctx.update.message.chat.id.toString()))
 bot.command('help', ctx => ctx.reply(templates.render('help')))
 bot.command('about', ctx => ctx.reply(templates.render('about'), { parse_mode: 'Markdown' }))
 bot.command('time', ctx => {
