@@ -1,6 +1,7 @@
 import { config } from './config.js'
 import ical from 'node-ical'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
+import templates from './templateManager.js'
 
 class ICal {
   constructor (bot, scheduler) {
@@ -8,6 +9,16 @@ class ICal {
     this.scheduler = scheduler
     this.jobs = new Map()
     this.getEvents().then()
+    this.bot.command('list_scheduled', ctx => {
+      if (!config.allowedUsers.includes(ctx.update.message.chat.id)) {
+        return ctx.reply(templates.render('notAllowed'))
+      }
+
+      const msg = [...this.jobs.values()]
+        .map(e => `${e.event.summary} - ${e.job.nextInvocation().toString()}`)
+        .join('\n')
+      ctx.reply(`Scheduled runs: \n${msg || 'No jobs scheduled'}`)
+    })
     setInterval(this.getEvents.bind(this), 5 * 60 * 1000)
   }
 
