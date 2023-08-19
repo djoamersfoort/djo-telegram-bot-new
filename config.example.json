@@ -14,7 +14,7 @@
 		},
 		"error": "Er ging iets mis",
 		"notAllowed": "Stout!",
-		"help": "Ik snap de volgende commando's:\n/help: Deze helptekst\n/about: Info over deze bot\n/search <keyword>: Zoeken in de DJO inventaris\n/aanmeld_status: Rapporteer de aanmeld status in DJO Chat",
+		"help": "Ik snap de volgende commando's:\n/help: Deze helptekst\n/about: Info over deze bot\n/search <keyword>: Zoeken in de DJO inventaris\n/aanmeld_status: Rapporteer de aanmeld status in DJO Chat\n/list_scheduled: Lijst met scheduled berichten via calendar",
 		"about": "Dit is de officiele DJO Amersfoort Telegram Bot. Hier staat mijn source:  [Github](https://github.com/djoamersfoort/djo-telegram-bot)."
 	},
 	"aanmelden": {
