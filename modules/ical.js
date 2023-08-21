@@ -26,9 +26,13 @@ class ICal {
     if (event.rrule && !event.rrule.after(new Date())) return
     if (!event.rrule && event.start.getTime() < Date.now()) return
 
-    const job = this.scheduler.schedule(event.rrule ? event.rrule.after(new Date()) : event.start, {
-      channel: parseInt(event.location) || event.location || config.channel,
-      text: NodeHtmlMarkdown.translate(event.description)
+    const job = this.scheduler.schedule(event.rrule ? event.rrule.after(new Date()) : event.start, async () => {
+      await this.bot.telegram.sendMessage(
+        parseInt(event.location) || event.location || config.channel,
+        NodeHtmlMarkdown.translate(event.description),
+        { parse_mode: 'Markdown' }
+      )
+      await this.scheduleJob(event)
     })
     this.jobs.set(event.uid, {
       job,
