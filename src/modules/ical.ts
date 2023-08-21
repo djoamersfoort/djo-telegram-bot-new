@@ -1,7 +1,7 @@
 import { config } from '../config.js'
 import ical from 'node-ical'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
-import templates from './templateManager.js'
+import templates from '../templates.js'
 import { Scheduler } from './scheduler.js'
 import { Job } from 'node-schedule'
 

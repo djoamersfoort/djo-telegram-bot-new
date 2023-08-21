@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import templates from './templateManager.js'
+import templates from '../templates.js'
 import { config } from '../config.js'
 import { Scheduler } from './scheduler.js'
 

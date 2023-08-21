@@ -1,6 +1,6 @@
-import { config, Texts } from '../config.js'
+import { config, Texts } from './config.js'
 
-class TemplateManager {
+class Templates {
   render (id: string, params = {}) {
     const path = id.split('.')
     const template = path.reduce((o: Texts|string, i) => (o as Texts)[i], config.texts)
@@ -15,4 +15,4 @@ class TemplateManager {
   }
 }
 
-export default new TemplateManager()
+export default new Templates()

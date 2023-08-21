@@ -1,5 +1,5 @@
 import schedule from 'node-schedule'
-import templates from './templateManager.js'
+import templates from '../templates.js'
 
 interface MsgEvent {
   channel: string|number,

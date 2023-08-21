@@ -1,7 +1,7 @@
 import Parser from 'rss-parser'
 import fs from 'fs'
 import { config } from '../config.js'
-import templates from './templateManager.js'
+import templates from '../templates.js'
 
 class Feed {
   constructor (public bot: Bot) {
