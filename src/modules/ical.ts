@@ -2,11 +2,18 @@ import { config } from './config.js'
 import ical from 'node-ical'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 import templates from './templateManager.js'
+import { Scheduler } from './scheduler.js'
+import { Job } from 'node-schedule'
+
+interface JobRegister {
+  job: Job
+  event: ical.VEvent
+}
 
 class ICal {
-  constructor (bot, scheduler) {
-    this.bot = bot
-    this.scheduler = scheduler
+  private jobs: Map<string, JobRegister>
+
+  constructor (public bot: Bot, public scheduler: Scheduler) {
     this.jobs = new Map()
     this.getEvents().then()
     this.bot.command('list_scheduled', ctx => {
@@ -22,7 +29,7 @@ class ICal {
     setInterval(this.getEvents.bind(this), 5 * 60 * 1000)
   }
 
-  async scheduleJob (event) {
+  async scheduleJob (event: ical.VEvent) {
     if (event.rrule && !event.rrule.after(new Date())) return
     if (!event.rrule && event.start.getTime() < Date.now()) return
 

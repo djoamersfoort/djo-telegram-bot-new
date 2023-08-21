@@ -30,7 +30,7 @@ bot.on(message('text'), ctx => {
     if (!ctx.update.message.text.toLowerCase().includes(trigger)) return
 
     if (response.document) ctx.replyWithDocument(response.document)
-    else ctx.reply(response.text, { parse_mode: 'Markdown' })
+    if (response.text) ctx.reply(response.text, { parse_mode: 'Markdown' })
   })
 })
 bot.launch().then()

@@ -1,12 +1,18 @@
 import schedule from 'node-schedule'
 import templates from './templateManager.js'
 
-class Scheduler {
-  constructor (bot) {
-    this.bot = bot
-  }
+interface MsgEvent {
+  channel: string|number,
+  text: string
+}
 
-  schedule (time, job) {
+class Scheduler {
+  constructor (public bot: Bot) {}
+
+  schedule (
+      time: string | number | schedule.RecurrenceRule | schedule.RecurrenceSpecDateRange | schedule.RecurrenceSpecObjLit | Date,
+      job: MsgEvent | (() => void)
+  ) {
     return schedule.scheduleJob(time, async () => {
       if (job instanceof Function) {
         job()

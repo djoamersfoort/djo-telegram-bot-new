@@ -4,14 +4,12 @@ import { config } from './config.js'
 import templates from './templateManager.js'
 
 class Feed {
-  constructor (bot) {
-    this.bot = bot
-
+  constructor (public bot: Bot) {
     this.parse().then()
     setInterval(this.parse.bind(this), 5 * 60 * 1000)
   }
 
-  async message (item) {
+  async message (item: Record<string, string>) {
     await this.bot.telegram.sendMessage(config.channel, templates.render('post', item), { parse_mode: 'Markdown' })
   }
 
