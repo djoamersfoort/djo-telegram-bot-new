@@ -6,7 +6,7 @@ import { Search } from './modules/search.js'
 import { Scheduler } from './modules/scheduler.js'
 import { ICal } from './modules/ical.js'
 import templates from './modules/templateManager.js'
-import { config } from './modules/config.js'
+import { config } from './config.js'
 
 const bot = new Telegraf(config.token)
 /* eslint-disable no-new */

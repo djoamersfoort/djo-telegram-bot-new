@@ -1,6 +1,6 @@
 import Parser from 'rss-parser'
 import fs from 'fs'
-import { config } from './config.js'
+import { config } from '../config.js'
 import templates from './templateManager.js'
 
 class Feed {

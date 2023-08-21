@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import templates from './templateManager.js'
-import { config } from './config.js'
+import { config } from '../config.js'
 import { Scheduler } from './scheduler.js'
 
 interface Day {

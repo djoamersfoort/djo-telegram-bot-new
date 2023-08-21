@@ -1,4 +1,4 @@
-import { config } from './config.js'
+import { config } from '../config.js'
 import ical from 'node-ical'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 import templates from './templateManager.js'

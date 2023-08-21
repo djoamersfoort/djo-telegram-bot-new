@@ -1,4 +1,4 @@
-import { config, Texts } from './config.js'
+import { config, Texts } from '../config.js'
 
 class TemplateManager {
   render (id: string, params = {}) {
