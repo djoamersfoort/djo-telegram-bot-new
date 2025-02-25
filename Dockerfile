@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:20
 
 RUN ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 RUN useradd -U -u 1003 -m bot
